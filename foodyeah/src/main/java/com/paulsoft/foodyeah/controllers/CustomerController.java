@@ -10,30 +10,31 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/foodyeah")
+@RequestMapping(path = "/")
 public class CustomerController {
     @Autowired
     CustomerService customerService;
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/customers")
+    @GetMapping("customers")
     public ResourceResponse<List<CustomerDto>> getCustomers() throws ResourceException {
         return new ResourceResponse<>("Success",String.valueOf(HttpStatus.OK),"OK",
                 customerService.getCustomers());
     }
     @ResponseStatus(HttpStatus.OK)
-    @PostMapping("/customers")
+    @PostMapping("customers")
     public ResourceResponse<CustomerDto> createCustomer(@RequestBody @Valid CreateCustomerDto createCustomerDto )throws ResourceException{
         return new ResourceResponse<>("Success",String.valueOf(HttpStatus.OK),"OK",
                 customerService.createCustomer(createCustomerDto));
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @DeleteMapping("/customers")
-    public ResourceResponse<String> deleteCustomer(@RequestParam Long id)throws ResourceException {
+    @DeleteMapping("customers/{id}")
+    public ResourceResponse<String> deleteCustomer(@PathVariable("id") Long id)throws ResourceException {
         return new ResourceResponse<>("Success",String.valueOf(HttpStatus.OK),"OK",
                 customerService.deleteCustomer(id));
     }
