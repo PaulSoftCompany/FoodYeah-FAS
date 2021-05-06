@@ -7,9 +7,11 @@ import com.paulsoft.foodyeah.inventariocontext.exceptions.ResourceException;
 import com.paulsoft.foodyeah.inventariocontext.repositories.ProductCategoryRepository;
 import com.paulsoft.foodyeah.inventariocontext.services.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProductCategoryServiceImpl implements ProductCategoryService {
 
     @Autowired
