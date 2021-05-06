@@ -4,6 +4,7 @@ import com.paulsoft.foodyeah.inventariocontext.entities.Product;
 import com.paulsoft.foodyeah.inventariocontext.entities.ProductCategory;
 import com.paulsoft.foodyeah.inventariocontext.exceptions.NotFoundException;
 import com.paulsoft.foodyeah.inventariocontext.exceptions.ResourceException;
+import com.paulsoft.foodyeah.inventariocontext.repositories.ProductCategoryRepository;
 import com.paulsoft.foodyeah.inventariocontext.repositories.ProductRepository;
 import com.paulsoft.foodyeah.inventariocontext.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,10 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
-    ProductRepository productRepository;
+    private ProductRepository productRepository;
+
+    @Autowired
+    private ProductCategoryRepository productCategoryRepository;
 
     @Override
     public List<Product> getAll() throws ResourceException {
@@ -38,8 +42,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getProductByCategoryId(long id) throws ResourceException {
-        return productRepository.findByCategoryId(id);
+    public List<Product> getProductByProductCategoryId(long id) throws ResourceException {
+        ProductCategory productCategory = productCategoryRepository.findById(id).orElseThrow(()-> new NotFoundException("NOT_FOUND","NOT_FOUND"));
+        return productRepository.findByProductCategory(productCategory);
     }
 
     @Override

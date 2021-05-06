@@ -10,7 +10,7 @@ public interface ProductService {
     Product getProductById(Long id) throws ResourceException;
     Product getProductByName(String name) throws ResourceException;
     List<Product> getProductBySellday(int sellDay) throws ResourceException;
-    List<Product> getProductByCategoryId(long id) throws ResourceException;
+    List<Product> getProductByProductCategoryId(long id) throws ResourceException;
     List<Product> menuSemanal() throws ResourceException;
     List<Product> platosALaCarta() throws ResourceException;
     List<Product> platosALaCartaByCategoryId(long id) throws ResourceException;

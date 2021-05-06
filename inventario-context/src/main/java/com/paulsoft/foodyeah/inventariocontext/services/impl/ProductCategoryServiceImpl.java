@@ -1,6 +1,5 @@
 package com.paulsoft.foodyeah.inventariocontext.services.impl;
 
-import com.netflix.discovery.converters.Auto;
 import com.paulsoft.foodyeah.inventariocontext.entities.ProductCategory;
 import com.paulsoft.foodyeah.inventariocontext.exceptions.NotFoundException;
 import com.paulsoft.foodyeah.inventariocontext.exceptions.ResourceException;
@@ -15,7 +14,7 @@ import java.util.List;
 public class ProductCategoryServiceImpl implements ProductCategoryService {
 
     @Autowired
-    ProductCategoryRepository productCategoryRepository;
+    private ProductCategoryRepository productCategoryRepository;
 
     @Override
     public List<ProductCategory> getAll() throws ResourceException {
