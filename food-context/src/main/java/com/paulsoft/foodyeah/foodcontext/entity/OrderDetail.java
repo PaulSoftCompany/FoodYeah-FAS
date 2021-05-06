@@ -25,6 +25,9 @@ public class OrderDetail {
     @JoinColumn(name = "order_id",nullable = false)
     private Order order;
 
+    @Column(name = "order_detail_state")
+    public String state;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id",nullable = false)
     private Product product;

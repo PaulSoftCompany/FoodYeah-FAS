@@ -40,19 +40,29 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order createOrder(Order order) {
-        PrepareDetail(order);
+        //PrepareDetail(order);
         PrepareHeader(order);
         return orderRepository.save(order);
     }
 
     private void PrepareHeader(Order order) {
         order.setState("CREATED");
-        order.setDate( new SimpleDateFormat("HH:mm:ss").format(new Date()));
+        order.setDate( new Date());
         order.setTotalPrice((double) OrderTotalPrice(order));
         order.setInittime(new SimpleDateFormat("HH:mm:ss").format(new Date()));
         order.setEndtime("00:00:00");
     }
 
+    /*private void PrepareDetail(Order order) {
+        List<OrderDetail> _orderDetails = order.getOrderDetails();
+        for (OrderDetail orderDetail : _orderDetails) {
+            Product product = productRepository.getOne(orderDetail.getProduct().getId());
+            orderDetail.setUnitPrice(product.getProductPrice());
+            orderDetail.setTotalPrice(orderDetail.getUnitPrice() * orderDetail.getQuantity());
+            orderDetail.setState("CREATED");
+            orderDetailRepository.save(orderDetail);
+        }
+    }*/
 
     public void SetEndTime(Order order) {
         order.setEndtime(new SimpleDateFormat("HH:mm:ss").format(new Date()));
@@ -104,7 +114,7 @@ public class OrderServiceImpl implements OrderService {
 
         if ((card.getCardMoney() - order.getTotalPrice()) >= 0)
         {
-            card.setCardMoney(card.getCardMoney() - order.getTotalPrice());
+            card.setCardMoney((float) (card.getCardMoney() - order.getTotalPrice()));
             cardRepository.save(card);
             return true;
         }

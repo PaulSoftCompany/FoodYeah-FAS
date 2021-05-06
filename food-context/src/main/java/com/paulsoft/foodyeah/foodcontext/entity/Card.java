@@ -24,9 +24,17 @@ public class Card{
     @Column(name = "card_number")
     private Long cardNumber;
 
+    @Column(name = "card_money")
+    private float cardMoney;
+
     @Column(name = "expire_date")
     private Date expireDate;
 
+    @Column(name = "card_state")
+    private String state;
+
     @ManyToMany(mappedBy = "registeredCards")
     List<Customer> customers;
+
+
 }
