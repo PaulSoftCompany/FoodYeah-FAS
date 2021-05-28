@@ -96,4 +96,5 @@ public class ProductServiceImpl implements ProductService {
         productDB.setState("DELETED");
         return productRepository.save(productDB);
     }
+
 }

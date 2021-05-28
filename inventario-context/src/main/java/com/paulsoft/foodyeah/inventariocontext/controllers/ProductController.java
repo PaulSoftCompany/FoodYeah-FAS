@@ -25,15 +25,15 @@ public class ProductController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping()
-    public ResourceResponse<List<ProductDto>> getProducts() throws ResourceException {
+    public ResourceResponse<List<Product>> getProducts() throws ResourceException {
         return new ResourceResponse<>("Success",String.valueOf(HttpStatus.OK),"OK",
-                productService.getAll().stream().map(this::convertToResource).collect(Collectors.toList()));
+                productService.getAll());
     }
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
-    public ResourceResponse<ProductDto> getProductById(@PathVariable(name = "id") Long id) throws ResourceException {
+    public ResourceResponse<Product> getProductById(@PathVariable(name = "id") Long id) throws ResourceException {
         return new ResourceResponse<>("Success",String.valueOf(HttpStatus.OK),"OK",
-                convertToResource(productService.getProductById(id)));
+                productService.getProductById(id));
     }
 
 

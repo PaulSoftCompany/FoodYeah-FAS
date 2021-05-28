@@ -24,15 +24,15 @@ public class ProductCategoryController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping()
-    public ResourceResponse<List<ProductCategoryDto>> getProductCategories() throws ResourceException {
+    public ResourceResponse<List<ProductCategory>> getProductCategories() throws ResourceException {
         return new ResourceResponse<>("Success",String.valueOf(HttpStatus.OK),"OK",
-                productCategoryService.getAll().stream().map(this::convertToResource).collect(Collectors.toList()));
+                productCategoryService.getAll());
     }
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
-    public ResourceResponse<ProductCategoryDto> getProductCategoryById(@PathVariable(name = "id") Long id) throws ResourceException {
+    public ResourceResponse<ProductCategory> getProductCategoryById(@PathVariable(name = "id") Long id) throws ResourceException {
         return new ResourceResponse<>("Success",String.valueOf(HttpStatus.OK),"OK",
-                convertToResource(productCategoryService.getProductCategoryById(id)));
+                productCategoryService.getProductCategoryById(id));
     }
 
     private ProductCategory convertToEntity(CreateProductCategoryDto resource){ return mapper.map(resource,ProductCategory.class);}
