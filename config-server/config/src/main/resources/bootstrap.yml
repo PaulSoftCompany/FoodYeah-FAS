@@ -5,13 +5,13 @@ spring:
         config: 
             server:
                 git:
-                    uri: https://github.com/PaulSoftCompany/FoodYeah-Front.git
+                    uri: https://github.com/PaulSoftCompany/Foodyeah-FAS.git
                     searchPaths: config-data 
                     username: ${GIT_USER} 
                     password: ${GIT_PASSWORD} 
                     default-label: "development-v2"
     security: 
         user:
-            name: name 
-            password: password
+            name: paulsoftcomp
+            password: paulsoftcompany123
 
