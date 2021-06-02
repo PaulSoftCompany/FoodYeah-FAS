@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.paulsoft.foodyeah.services.ProductCategoryService;
+import com.paulsoft.inventory.services.ProductCategoryService;
 import com.paulsoft.inventory.dtos.ProductCategoryDto.CreateProductCategoryDto;
 import com.paulsoft.inventory.dtos.ProductCategoryDto.ProductCategoryDto;
 import com.paulsoft.inventory.dtos.ProductCategoryDto.UpdateProductCategoryDto;

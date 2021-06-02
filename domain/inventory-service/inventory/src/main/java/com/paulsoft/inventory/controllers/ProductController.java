@@ -1,4 +1,4 @@
-package com.paulsoft.foodyeah.controllers;
+package com.paulsoft.inventory.controllers;
 
 import com.paulsoft.inventory.dtos.ProductCategoryDto.CreateProductCategoryDto;
 import com.paulsoft.inventory.dtos.ProductCategoryDto.ProductCategoryDto;
