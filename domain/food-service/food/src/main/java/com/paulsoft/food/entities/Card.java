@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.paulsoft.food.models.Customer;
 
@@ -38,8 +39,7 @@ public class Card{
 
     private Boolean state;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id",nullable = false)
+    @Transient
     private Customer customer;
 
     @Column(name = "card_money")

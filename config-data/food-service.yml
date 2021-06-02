@@ -1,18 +1,18 @@
-spring: 
+spring:
   application:
     name: food-service
   cloud:
     config:
-      uri: http://localhost:8081 
-      username: name
-      password: password 
+      uri: http://localhost:8081
+      username: paulsoftcomp
+      password: paulsoftcompany123
   boot:
     admin:
       client:
         url: http://localhost:8082
 
 # Eureka Client
-eureka: 
+eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8099/eureka/
