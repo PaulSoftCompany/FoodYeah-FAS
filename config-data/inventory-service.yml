@@ -1,0 +1,18 @@
+spring: 
+  application:
+    name: inventory-service
+  cloud:
+    config:
+      uri: http://localhost:8081 
+      username: name
+      password: password 
+  boot:
+    admin:
+      client:
+        url: http://localhost:8083
+
+# Eureka Client
+eureka: 
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8099/eureka/

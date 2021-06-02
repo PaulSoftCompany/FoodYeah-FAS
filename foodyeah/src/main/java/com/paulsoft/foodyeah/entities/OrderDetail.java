@@ -3,6 +3,7 @@ package com.paulsoft.foodyeah.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
@@ -12,10 +13,13 @@ public class OrderDetail {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    private byte quantity;
+    private Byte quantity;
 
     @Column(name ="unit_price")
     private Double unitPrice;
+
+    @Column(name = "unit_name")
+    private String unitName;
 
     @Column(name ="total_price")
     private Double totalPrice;

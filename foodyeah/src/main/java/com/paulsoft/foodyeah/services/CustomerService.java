@@ -1,9 +1,11 @@
 package com.paulsoft.foodyeah.services;
 
+import com.paulsoft.foodyeah.dtos.CustomerDto.UpdateCustomerDto;
 import com.paulsoft.foodyeah.exceptions.ResourceException;
-import com.paulsoft.foodyeah.dtos.CreateCustomerDto;
-import com.paulsoft.foodyeah.dtos.CustomerDto;
+import com.paulsoft.foodyeah.dtos.CustomerDto.CreateCustomerDto;
+import com.paulsoft.foodyeah.dtos.CustomerDto.CustomerDto;
 
+import java.text.ParseException;
 import java.util.List;
 
 public interface CustomerService {
@@ -15,9 +17,9 @@ public interface CustomerService {
 
     List<CustomerDto> getCustomers() throws ResourceException;
 
-    CustomerDto createCustomer(CreateCustomerDto createCustomerDto) throws ResourceException;
+    CustomerDto createCustomer(CreateCustomerDto createCustomerDto) throws ResourceException, ParseException;
 
-    CustomerDto updateCustomer(CreateCustomerDto updateCustomerDto, Long id) throws ResourceException;
+    CustomerDto updateCustomer(UpdateCustomerDto updateCustomerDto, Long id) throws ResourceException;
 
     String deleteCustomer(Long id) throws ResourceException;
 

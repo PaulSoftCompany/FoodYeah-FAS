@@ -1,9 +1,11 @@
 package com.paulsoft.foodyeah.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.w3c.dom.stylesheets.LinkStyle;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -25,10 +27,15 @@ public class Customer{
 
     private Boolean state;
 
-    @ManyToMany
-    @JoinTable(name = "card_registered",
-            joinColumns = @JoinColumn(name = "customer_id"),
-            inverseJoinColumns = @JoinColumn(name = "card_id"))
-    List<Card> registeredCards;
+    private String password;
+
+    @Column(name ="created_at")
+    private Date createdAt;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "customer")
+    private List<Card> cards;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "customer")
+    private List<Order> orders;
 
 }

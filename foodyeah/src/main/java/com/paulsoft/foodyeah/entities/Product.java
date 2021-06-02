@@ -4,6 +4,7 @@ package com.paulsoft.foodyeah.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,17 @@ public class Product {
 
     @Column(name ="product_price")
     private Double productPrice;
+
+    @Column(name ="sell_day")
+    private Byte sellDay;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    private Boolean state;
+
+    @Column(name ="created_at")
+    private Date createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_category_id",nullable = false)
