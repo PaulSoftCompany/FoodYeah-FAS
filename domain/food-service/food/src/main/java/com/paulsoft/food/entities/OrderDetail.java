@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.paulsoft.food.models.Product;
 
@@ -37,7 +38,6 @@ public class OrderDetail {
     @JoinColumn(name = "order_id",nullable = false)
     private Order order;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id",nullable = false)
+    @Transient
     private Product product;
 }
