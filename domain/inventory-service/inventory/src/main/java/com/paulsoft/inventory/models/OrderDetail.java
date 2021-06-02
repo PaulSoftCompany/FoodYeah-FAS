@@ -1,9 +1,7 @@
-package com.paulsoft.inventory.models.OrderDetail;
+package com.paulsoft.inventory.models;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Date;
 
 @Getter
 @Setter

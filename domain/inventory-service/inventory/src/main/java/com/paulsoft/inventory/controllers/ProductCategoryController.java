@@ -1,4 +1,4 @@
-package com.paulsoft.inventory.controllers
+package com.paulsoft.inventory.controllers;
 
 import java.text.ParseException;
 import java.util.List;

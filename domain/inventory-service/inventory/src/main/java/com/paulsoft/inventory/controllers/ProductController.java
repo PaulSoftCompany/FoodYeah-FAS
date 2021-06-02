@@ -1,20 +1,28 @@
 package com.paulsoft.inventory.controllers;
 
-import com.paulsoft.inventory.dtos.ProductCategoryDto.CreateProductCategoryDto;
-import com.paulsoft.inventory.dtos.ProductCategoryDto.ProductCategoryDto;
-import com.paulsoft.inventory.dtos.ProductCategoryDto.UpdateProductCategoryDto;
+import java.text.ParseException;
+import java.util.List;
+
+import javax.validation.Valid;
+
 import com.paulsoft.inventory.dtos.ProductDto.CreateProductDto;
 import com.paulsoft.inventory.dtos.ProductDto.ProductDto;
 import com.paulsoft.inventory.dtos.ProductDto.UpdateProductDto;
 import com.paulsoft.inventory.exceptions.ResourceException;
 import com.paulsoft.inventory.responses.ResourceResponse;
+import com.paulsoft.inventory.services.ProductService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.text.ParseException;
-import java.util.List;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/products")
