@@ -26,6 +26,13 @@ dependencies {
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
 	implementation 'io.springfox:springfox-swagger2:2.9.2'
 	implementation 'javax.validation:validation-api:2.0.1.Final'
+
+	implementation group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.4.1'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: '3.0.4'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '3.0.3'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.8.RELEASE'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix-dashboard', version: '2.2.8.RELEASE'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '3.0.3'
 }
 
 test {
