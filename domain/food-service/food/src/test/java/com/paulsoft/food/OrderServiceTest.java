@@ -1,23 +1,25 @@
-package com.paulsoft.foodyeah.ServiceUnitTests;
+package com.paulsoft.food;
 
-import com.paulsoft.foodyeah.dtos.CardDto.CardDto;
-import com.paulsoft.foodyeah.dtos.CardDto.CreateCardDto;
-import com.paulsoft.foodyeah.dtos.OrderDetailDto.CreateOrderDetailDto;
-import com.paulsoft.foodyeah.dtos.OrderDetailDto.OrderDetailDto;
-import com.paulsoft.foodyeah.dtos.OrderDetailDto.UpdateOrderDetailDto;
-import com.paulsoft.foodyeah.dtos.ProductDto.CreateProductDto;
-import com.paulsoft.foodyeah.dtos.orderDto.CreateOrderDto;
-import com.paulsoft.foodyeah.dtos.orderDto.OrderDto;
-import com.paulsoft.foodyeah.dtos.orderDto.UpdateOrderDto;
-import com.paulsoft.foodyeah.entities.*;
-import com.paulsoft.foodyeah.exceptions.InternalServerErrorException;
-import com.paulsoft.foodyeah.exceptions.NotFoundException;
-import com.paulsoft.foodyeah.exceptions.ResourceException;
-import com.paulsoft.foodyeah.repositories.CustomerRepository;
-import com.paulsoft.foodyeah.repositories.OrderDetailRepository;
-import com.paulsoft.foodyeah.repositories.OrderRepository;
-import com.paulsoft.foodyeah.repositories.ProductRepository;
-import com.paulsoft.foodyeah.services.impl.OrderServiceImpl;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import com.paulsoft.food.dtos.orderDto.CreateOrderDto;
+import com.paulsoft.food.dtos.orderDto.OrderDto;
+import com.paulsoft.food.dtos.orderDto.UpdateOrderDto;
+import com.paulsoft.food.entities.Order;
+import com.paulsoft.food.entities.OrderDetail;
+import com.paulsoft.food.exceptions.NotFoundException;
+import com.paulsoft.food.exceptions.ResourceException;
+import com.paulsoft.food.models.Customer;
+import com.paulsoft.food.models.Product;
+import com.paulsoft.food.repositories.OrderDetailRepository;
+import com.paulsoft.food.repositories.OrderRepository;
+import com.paulsoft.food.services.impl.OrderServiceImpl;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -26,23 +28,15 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.modelmapper.ModelMapper;
 
-import java.text.ParseException;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-
 public class OrderServiceTest {
     @InjectMocks
     OrderServiceImpl service;
     @Mock
     OrderRepository repository;
-    @Mock
-    CustomerRepository customerRepository;
-    @Mock
-    ProductRepository productRepository;
+    // @Mock
+    // CustomerRepository customerRepository;
+    // @Mock
+    // ProductRepository productRepository;
     @Mock
     OrderDetailRepository orderDetailRepository;
 
@@ -85,7 +79,7 @@ public class OrderServiceTest {
         CUSTOMER.setFirstName(CUSTOMER_FIRSTNAME);
         CUSTOMER.setLastName(CUSTOMER_LASTNAME);
         CUSTOMER.setCode(CUSTOMER_CODE);
-        CUSTOMER.setPassword(CUSTOMER_PASSWORD);
+        // CUSTOMER.setPassword(CUSTOMER_PASSWORD);
         ORDER.setCustomer(CUSTOMER);
 
         PRODUCT.setId(PRODUCT_ID);

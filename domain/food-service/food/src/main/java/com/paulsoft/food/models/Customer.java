@@ -6,9 +6,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.paulsoft.food.dtos.orderDto.OrderDto;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class Customer {
     private Long id;
     private String firstName;

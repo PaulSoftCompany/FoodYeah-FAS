@@ -1,23 +1,23 @@
-package com.paulsoft.foodyeah.ServiceUnitTests;
+package com.paulsoft.food;
 
-import com.paulsoft.foodyeah.dtos.CardDto.CardDto;
-import com.paulsoft.foodyeah.dtos.CardDto.CreateCardDto;
-import com.paulsoft.foodyeah.dtos.CardDto.UpdateCardDto;
-import com.paulsoft.foodyeah.dtos.ProductCategoryDto.CreateProductCategoryDto;
-import com.paulsoft.foodyeah.dtos.ProductCategoryDto.ProductCategoryDto;
-import com.paulsoft.foodyeah.dtos.ProductCategoryDto.UpdateProductCategoryDto;
-import com.paulsoft.foodyeah.dtos.ProductDto.CreateProductDto;
-import com.paulsoft.foodyeah.dtos.ProductDto.ProductDto;
-import com.paulsoft.foodyeah.entities.Card;
-import com.paulsoft.foodyeah.entities.Customer;
-import com.paulsoft.foodyeah.entities.Product;
-import com.paulsoft.foodyeah.entities.ProductCategory;
-import com.paulsoft.foodyeah.exceptions.InternalServerErrorException;
-import com.paulsoft.foodyeah.exceptions.NotFoundException;
-import com.paulsoft.foodyeah.exceptions.ResourceException;
-import com.paulsoft.foodyeah.repositories.CardRepository;
-import com.paulsoft.foodyeah.repositories.CustomerRepository;
-import com.paulsoft.foodyeah.services.impl.CardServiceImpl;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import com.paulsoft.food.dtos.cardDto.CardDto;
+import com.paulsoft.food.dtos.cardDto.CreateCardDto;
+import com.paulsoft.food.dtos.cardDto.UpdateCardDto;
+import com.paulsoft.food.entities.Card;
+import com.paulsoft.food.exceptions.InternalServerErrorException;
+import com.paulsoft.food.exceptions.NotFoundException;
+import com.paulsoft.food.exceptions.ResourceException;
+import com.paulsoft.food.models.Customer;
+import com.paulsoft.food.repositories.CardRepository;
+import com.paulsoft.food.services.impl.CardServiceImpl;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -26,21 +26,14 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.modelmapper.ModelMapper;
 
-import java.text.ParseException;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-
 class CardServiceTest {
     @InjectMocks
     CardServiceImpl service;
     @Mock
     CardRepository repository;
-    @Mock
-    CustomerRepository customerRepository;
+    // @Mock
+    // CustomerRepository customerRepository;
+
     public static final ModelMapper modelMapper = new ModelMapper();
     public static final Card CARD = new Card();
     public static final Long CARD_ID = 1L;
@@ -71,7 +64,7 @@ class CardServiceTest {
         CUSTOMER.setFirstName(CUSTOMER_FIRSTNAME);
         CUSTOMER.setLastName(CUSTOMER_LASTNAME);
         CUSTOMER.setCode(CUSTOMER_CODE);
-        CUSTOMER.setPassword(CUSTOMER_PASSWORD);
+        // CUSTOMER.setPassword(CUSTOMER_PASSWORD);
         CARD.setCustomer(CUSTOMER);
     }
     //List<CardDto> getCards() throws ResourceException;

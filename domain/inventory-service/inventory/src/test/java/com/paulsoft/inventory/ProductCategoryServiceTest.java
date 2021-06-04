@@ -1,29 +1,30 @@
-package com.paulsoft.foodyeah.ServiceUnitTests;
-
-import com.paulsoft.foodyeah.dtos.ProductCategoryDto.CreateProductCategoryDto;
-import com.paulsoft.foodyeah.dtos.ProductCategoryDto.ProductCategoryDto;
-import com.paulsoft.foodyeah.dtos.ProductCategoryDto.UpdateProductCategoryDto;
-import com.paulsoft.foodyeah.entities.Product;
-import com.paulsoft.foodyeah.entities.ProductCategory;
-import com.paulsoft.foodyeah.exceptions.NotFoundException;
-import com.paulsoft.foodyeah.exceptions.ResourceException;
-import com.paulsoft.foodyeah.repositories.ProductCategoryRepository;
-import com.paulsoft.foodyeah.services.impl.ProductCategoryServiceImpl;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.modelmapper.ModelMapper;
+package com.paulsoft.inventory;
 
 import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import com.paulsoft.inventory.dtos.ProductCategoryDto.CreateProductCategoryDto;
+import com.paulsoft.inventory.dtos.ProductCategoryDto.ProductCategoryDto;
+import com.paulsoft.inventory.dtos.ProductCategoryDto.UpdateProductCategoryDto;
+import com.paulsoft.inventory.entities.Product;
+import com.paulsoft.inventory.entities.ProductCategory;
+import com.paulsoft.inventory.exceptions.NotFoundException;
+import com.paulsoft.inventory.exceptions.ResourceException;
+import com.paulsoft.inventory.repositories.ProductCategoryRepository;
+import com.paulsoft.inventory.services.impl.ProductCategoryServiceImpl;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.modelmapper.ModelMapper;
 
 class ProductCategoryServiceTest {
     @InjectMocks

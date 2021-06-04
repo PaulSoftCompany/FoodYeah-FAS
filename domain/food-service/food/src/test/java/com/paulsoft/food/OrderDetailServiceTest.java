@@ -1,21 +1,17 @@
-package com.paulsoft.foodyeah.ServiceUnitTests;
+package com.paulsoft.food;
 
-import com.paulsoft.foodyeah.dtos.CustomerDto.CustomerDto;
-import com.paulsoft.foodyeah.dtos.CustomerDto.UpdateCustomerDto;
-import com.paulsoft.foodyeah.dtos.OrderDetailDto.CreateOrderDetailDto;
-import com.paulsoft.foodyeah.dtos.OrderDetailDto.OrderDetailDto;
-import com.paulsoft.foodyeah.dtos.OrderDetailDto.UpdateOrderDetailDto;
-import com.paulsoft.foodyeah.dtos.ProductDto.CreateProductDto;
-import com.paulsoft.foodyeah.dtos.ProductDto.ProductDto;
-import com.paulsoft.foodyeah.dtos.ProductDto.UpdateProductDto;
-import com.paulsoft.foodyeah.entities.Customer;
-import com.paulsoft.foodyeah.entities.OrderDetail;
-import com.paulsoft.foodyeah.entities.Product;
-import com.paulsoft.foodyeah.exceptions.NotFoundException;
-import com.paulsoft.foodyeah.exceptions.ResourceException;
-import com.paulsoft.foodyeah.repositories.CustomerRepository;
-import com.paulsoft.foodyeah.repositories.OrderDetailRepository;
-import com.paulsoft.foodyeah.services.impl.OrderDetailServiceImpl;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import com.paulsoft.food.dtos.orderDetailDto.OrderDetailDto;
+import com.paulsoft.food.dtos.orderDetailDto.UpdateOrderDetailDto;
+import com.paulsoft.food.entities.OrderDetail;
+import com.paulsoft.food.exceptions.NotFoundException;
+import com.paulsoft.food.exceptions.ResourceException;
+import com.paulsoft.food.repositories.OrderDetailRepository;
+import com.paulsoft.food.services.impl.OrderDetailServiceImpl;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -23,10 +19,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.modelmapper.ModelMapper;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 
 public class OrderDetailServiceTest {
     @InjectMocks

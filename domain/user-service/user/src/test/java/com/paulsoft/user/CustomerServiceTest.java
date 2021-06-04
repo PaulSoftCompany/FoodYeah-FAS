@@ -1,29 +1,26 @@
-package com.paulsoft.foodyeah.ServiceUnitTests;
-
-import com.paulsoft.foodyeah.dtos.CustomerDto.CreateCustomerDto;
-import com.paulsoft.foodyeah.dtos.CustomerDto.CustomerDto;
-import com.paulsoft.foodyeah.dtos.CustomerDto.UpdateCustomerDto;
-import com.paulsoft.foodyeah.dtos.ProductCategoryDto.CreateProductCategoryDto;
-import com.paulsoft.foodyeah.dtos.ProductCategoryDto.ProductCategoryDto;
-import com.paulsoft.foodyeah.dtos.ProductCategoryDto.UpdateProductCategoryDto;
-import com.paulsoft.foodyeah.entities.Customer;
-import com.paulsoft.foodyeah.entities.ProductCategory;
-import com.paulsoft.foodyeah.exceptions.NotFoundException;
-import com.paulsoft.foodyeah.exceptions.ResourceException;
-import com.paulsoft.foodyeah.repositories.CustomerRepository;
-import com.paulsoft.foodyeah.services.impl.CustomerServiceImpl;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.modelmapper.ModelMapper;
+package com.paulsoft.user;
 
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
+import com.paulsoft.user.dtos.customerDto.CreateCustomerDto;
+import com.paulsoft.user.dtos.customerDto.CustomerDto;
+import com.paulsoft.user.dtos.customerDto.UpdateCustomerDto;
+import com.paulsoft.user.entities.Customer;
+import com.paulsoft.user.exceptions.NotFoundException;
+import com.paulsoft.user.exceptions.ResourceException;
+import com.paulsoft.user.repositories.CustomerRepository;
+import com.paulsoft.user.services.impl.CustomerServiceImpl;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.modelmapper.ModelMapper;
 
 class CustomerServiceTest {
     @InjectMocks

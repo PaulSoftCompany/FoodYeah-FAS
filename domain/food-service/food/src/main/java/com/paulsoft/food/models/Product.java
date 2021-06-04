@@ -2,9 +2,9 @@ package com.paulsoft.food.models;
 
 import java.util.Date;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class Product {
     private Long id;
     private String name;
