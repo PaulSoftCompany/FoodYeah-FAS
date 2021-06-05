@@ -1,11 +1,11 @@
-spring: 
+spring:
   application:
     name: food-service
   cloud:
     config:
-      uri: http://localhost:8081 
+      uri: http://localhost:8081
       username: paulsoftcomp
-      password: paulsoftcompany123 
+      password: paulsoftcompany123
   boot:
     admin:
       client:
