@@ -40,7 +40,8 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public List<CardDto> getAllByCustomerId(long id) throws ResourceException {
-        return convertToResources(cardRepository.findAllByCustomerId(id));
+        // return convertToResources(cardRepository.findAllByCustomerId(id));
+        return null;
     }
 
     @Override

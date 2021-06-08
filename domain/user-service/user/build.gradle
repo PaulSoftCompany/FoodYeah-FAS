@@ -21,6 +21,7 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-bootstrap', version: '3.0.2'
+	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'junit:junit'
 	implementation 'org.modelmapper:modelmapper:2.4.0'

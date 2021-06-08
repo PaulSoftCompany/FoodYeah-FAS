@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface CardRepository extends JpaRepository<Card,Long> {
-    List<Card> findAllByCustomerId(Long id);
+    // List<Card> findAllByCustomerId(Long id);
     Optional<Card> findCardByCardNumber(Long number);
 }

@@ -49,7 +49,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderDto> getOrdersByCustomerId(Long id) throws ResourceException {
-        return convertToResources(orderRepository.findAllByCustomerId(id));
+        // return convertToResources(orderRepository.findAllByCustomerId(id));
+        return null;
     }
 
     @Override

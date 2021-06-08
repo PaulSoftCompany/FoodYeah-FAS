@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.paulsoft.inventory.models.OrderDetail;
 
@@ -48,7 +49,7 @@ public class Product {
     @JoinColumn(name = "product_category_id",nullable = false)
     private ProductCategory productCategory;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "product")
+    @Transient
     private List<OrderDetail> orders;
 
 

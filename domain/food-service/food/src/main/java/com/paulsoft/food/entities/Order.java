@@ -9,10 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.paulsoft.food.models.Customer;
 
@@ -34,8 +33,6 @@ public class Order{
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "order")
     private List<OrderDetail> details;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id",nullable = false)
+    @Transient
     private Customer customer;
-
 }
