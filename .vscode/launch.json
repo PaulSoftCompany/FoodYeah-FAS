@@ -1,0 +1,63 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch ConfigApplication",
+            "request": "launch",
+            "mainClass": "com.paulsoft.config.ConfigApplication",
+            "projectName": "config"
+        },
+        {
+            "type": "java",
+            "name": "Launch FoodyeahApplication",
+            "request": "launch",
+            "mainClass": "com.paulsoft.foodyeah.FoodyeahApplication",
+            "projectName": "foodyeah"
+        },
+        {
+            "type": "java",
+            "name": "Launch FoodApplication",
+            "request": "launch",
+            "mainClass": "com.paulsoft.food.FoodApplication",
+            "projectName": "food"
+        },
+        {
+            "type": "java",
+            "name": "Launch GatewayServiceApplication",
+            "request": "launch",
+            "mainClass": "pe.edu.upc.gateway.GatewayServiceApplication",
+            "projectName": "gateway-service"
+        },
+        {
+            "type": "java",
+            "name": "Launch InventoryApplication",
+            "request": "launch",
+            "mainClass": "com.paulsoft.inventory.InventoryApplication",
+            "projectName": "inventory"
+        },
+        {
+            "type": "java",
+            "name": "Launch RegistryApplication",
+            "request": "launch",
+            "mainClass": "com.paulsoft.registry.RegistryApplication",
+            "projectName": "registry"
+        },
+        {
+            "type": "java",
+            "name": "Launch UserApplication",
+            "request": "launch",
+            "mainClass": "com.paulsoft.user.UserApplication",
+            "projectName": "user"
+        }
+    ]
+}
