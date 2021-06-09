@@ -12,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -49,8 +48,8 @@ public class Product {
     @JoinColumn(name = "product_category_id",nullable = false)
     private ProductCategory productCategory;
 
-    @Transient
-    private List<OrderDetail> orders;
+    //@Transient
+    //private List<OrderDetail> orders;
 
 
 }

@@ -7,9 +7,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@SpringBootApplication 
-@EnableDiscoveryClient 
-@EnableFeignClients
+//@EnableDiscoveryClient
+//@EnableFeignClients
+@SpringBootApplication
 @EnableSwagger2
 public class InventoryApplication {
 
