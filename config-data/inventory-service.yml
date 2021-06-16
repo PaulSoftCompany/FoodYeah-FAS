@@ -67,6 +67,9 @@ eureka:
 
 management:
   endpoints:
+    gateway:
+      enabled: true
+  endpoints:
     web:
       exposure:
         include: "*"
