@@ -14,7 +14,7 @@ import java.text.ParseException;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/")
+@RequestMapping(path = "/cards")
 public class CardController {
     @Autowired
     CardService cardService;
