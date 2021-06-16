@@ -6,6 +6,15 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8099/eureka/
 
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 spring:
   cloud:
     gateway:
@@ -15,16 +24,22 @@ spring:
       routes:
         - id: food-service
           uri: lb://food-service
+          filters:
+            - StripPrefix=2
           predicates:
             - Path=/api/fs/**
 
         - id: inventory-service
           uri: lb://inventory-service
+          filters:
+            - StripPrefix=2
           predicates:
             - Path=/api/is/**
 
         - id: user-service
           uri: lb://user-service
+          filters:
+            - StripPrefix=2
           predicates:
             - Path=/api/us/**
 #El predicate es la nueva ruta que toma , la ruta general, pero se respetan las rutas dentro del propio microservicio
