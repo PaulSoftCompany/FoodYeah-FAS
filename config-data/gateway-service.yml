@@ -16,13 +16,16 @@ spring:
         - id: food-service
           uri: lb://food-service
           predicates:
-            - Path=/foods/**
+            - Path=/api/fs/**
+
         - id: inventory-service
           uri: lb://inventory-service
           predicates:
-            - Path=/products/**
-            - Path=/product-categories/**
+            - Path=/api/is/**
+
         - id: user-service
           uri: lb://user-service
           predicates:
-            - Path=/customers/**
+            - Path=/api/us/**
+#El predicate es la nueva ruta que toma , la ruta general, pero se respetan las rutas dentro del propio microservicio
+#El uri es lb://id-del-servicio
