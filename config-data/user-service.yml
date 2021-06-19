@@ -19,8 +19,8 @@ spring:
     url: jdbc:mysql://db-foodyeah.ch9wxdmamybl.us-east-1.rds.amazonaws.com:3306/db-user
     driverClassName: com.mysql.cj.jdbc.Driver
     platform: org.hibernate.dialect.MySQL8Dialect
-    username: admindb
-    password: U28QnZLPyPtndWsExeep
+    username: admin
+    password: w0KZCVZnG69qP8NUPE4R
 
   # ===============================
   # JPA / HIBERNATE
