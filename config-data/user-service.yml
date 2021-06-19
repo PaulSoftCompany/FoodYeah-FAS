@@ -16,11 +16,11 @@ spring:
   # DB
   # ===============================
   datasource:
-    url: jdbc:h2:mem:productDB;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    driverClassName: org.h2.Driver
-    platform: h2
-    username: sa
-    password:
+    url: jdbc:mysql://db-udemy-microservice.ch9wxdmamybl.us-east-1.rds.amazonaws.com:3306/db-user
+    driverClassName: com.mysql.cj.jdbc.Driver
+    platform: org.hibernate.dialect.MySQL8Dialect
+    username: admindb
+    password: U28QnZLPyPtndWsExeep
 
   # ===============================
   # JPA / HIBERNATE
@@ -29,7 +29,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     properties:
       hibernate:
         show_sql: true
