@@ -2,7 +2,7 @@ server:
   port: 8099
 eureka:
   instance:
-    hostname: foodyeah-fas_config_1
+    hostname: localhost
   client:
     registerWithEureka: false
     fetchRegistry: false

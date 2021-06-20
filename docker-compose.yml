@@ -7,7 +7,7 @@ services:
     networks:
       - service-network
     depends_on:
-      - config
+      - config-service
 
   config-service:
     image: config-service
