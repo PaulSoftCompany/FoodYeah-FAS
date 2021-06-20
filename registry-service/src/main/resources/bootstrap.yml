@@ -3,6 +3,6 @@ spring:
     name: registry-service
   cloud:
     config:
-      uri: http://127.0.0.1:8081
+      uri: http://foodyeah-fas_config_1:8081
       username: paulsoftcomp
       password: paulsoftcompany123

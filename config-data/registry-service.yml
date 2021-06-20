@@ -2,11 +2,10 @@ server:
   port: 8099
 eureka:
   instance:
-    hostname: localhost
+    hostname: foodyeah-fas_config_1
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
 #  el false false si importa!
