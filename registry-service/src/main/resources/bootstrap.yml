@@ -3,6 +3,9 @@ spring:
     name: registry-service
   cloud:
     config:
-      uri: http://foodyeah-fas_config_1:8081
+      uri: http://config-service:8081
+      failFast: true
+      retry:
+        maxAttempts: 20
       username: paulsoftcomp
       password: paulsoftcompany123
