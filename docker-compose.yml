@@ -3,7 +3,7 @@ services:
   inventory-service:
     image: inventory-service
     ports:
-      - "8091:8091"
+      - "8091:80"
     networks:
       - foodyeah-network
     depends_on:
@@ -13,7 +13,7 @@ services:
   registry-service:
     image: registry-service
     ports:
-      - "8099:8099"
+      - "8099:80"
     networks:
       - foodyeah-network
     depends_on:
@@ -23,14 +23,14 @@ services:
   config-service:
     image: config-service
     ports:
-      - "8081:8081"
+      - "8081:80"
     networks:
       - foodyeah-network
 
   admin-service:
     image: admin-service
     ports:
-      - "8086:8086"
+      - "8086:80"
     networks:
       - foodyeah-network
 
