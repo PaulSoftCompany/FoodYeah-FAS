@@ -40,7 +40,8 @@ class CardServiceTest {
     public static final Boolean CARD_TYPE = true;
     public static final String CARD_OWNER = "CardOwner";
     public static final Long CARD_NUMBER = 1L;
-    public static final Date CARD_EXPIREDATE = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());
+    public static final Date CARD_EXPIREDATE = Date
+            .from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());
     public static final Date DATE = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());
     public static final Double CARD_MONEY = 500.0d;
     private static final Customer CUSTOMER = new Customer();
@@ -51,8 +52,9 @@ class CardServiceTest {
     private static final String CUSTOMER_PASSWORD = "asd123ASD#";
     private static final Boolean STATE_CREATED = true;
     private static final Boolean STATE_DELETED = false;
+
     @BeforeEach
-    public void init(){
+    public void init() {
         MockitoAnnotations.openMocks(this);
         CARD.setId(CARD_ID);
         CARD.setType(CARD_TYPE);
@@ -67,184 +69,196 @@ class CardServiceTest {
         // CUSTOMER.setPassword(CUSTOMER_PASSWORD);
         CARD.setCustomer(CUSTOMER);
     }
-    //List<CardDto> getCards() throws ResourceException;
+
+    // List<CardDto> getCards() throws ResourceException;
     @Test
-    void getCards() throws Exception{
+    void getCards() throws Exception {
         String methodName = "GET CARDS";
-        //Mock
+        // Mock
         Mockito.when(repository.findAll()).thenReturn(Arrays.asList(CARD));
         List<CardDto> response;
-        //Get response
+        // Get response
         try {
             response = service.getCards();
-        }catch(ResourceException e){
-            System.out.println(Util.ANSI_RED+"SERVICE ERROR"+Util.ANSI_RESET);
-            return; //Rompemos la funcion
-            //No podemos validar si no tenemos un response.
+        } catch (ResourceException e) {
+            System.out.println(Util.ANSI_RED + "SERVICE ERROR" + Util.ANSI_RESET);
+            return; // Rompemos la funcion
+            // No podemos validar si no tenemos un response.
         }
-        //Map ProductCategory to ProductCategoryDto:
-        CardDto mapped =  convertToResource(CARD);
-        //Assertions:
+        // Map ProductCategory to ProductCategoryDto:
+        CardDto mapped = convertToResource(CARD);
+        // Assertions:
         try {
-            Util.assertNotNull("RESPONSE NOT NULL",response);
+            Util.assertNotNull("RESPONSE NOT NULL", response);
             validateCard(response.get(0), mapped);
-            System.out.println(methodName + " - "+Util.ANSI_GREEN+"TESTS PASSED"+Util.ANSI_RESET);
-        }catch(AssertionError e){
-            System.out.println(methodName +" - "+Util.ANSI_RED+"TESTS FAILED"+Util.ANSI_RESET);
-            throw e;//Throweamos e para que el compilador identifique el error en el test
+            System.out.println(methodName + " - " + Util.ANSI_GREEN + "TESTS PASSED" + Util.ANSI_RESET);
+        } catch (AssertionError e) {
+            System.out.println(methodName + " - " + Util.ANSI_RED + "TESTS FAILED" + Util.ANSI_RESET);
+            throw e;// Throweamos e para que el compilador identifique el error en el test
         }
     }
-    //CardDto getCardById(Long id) throws ResourceException;
+
+    // CardDto getCardById(Long id) throws ResourceException;
     @Test
-    public void getCardById() throws Exception{
+    public void getCardById() throws Exception {
         String methodName = "GET CARD BY ID";
-        //Mock
+        // Mock
         Mockito.when(repository.findById(CARD_ID)).thenReturn(Optional.empty());
-        try{
+        try {
             service.getCardById(CARD_ID);
-        }catch (NotFoundException e){
-            System.out.println(methodName + " - "+Util.ANSI_GREEN+"EXCEPTION CARD NOT FOUND PASSED"+Util.ANSI_RESET);
+        } catch (NotFoundException e) {
+            System.out.println(
+                    methodName + " - " + Util.ANSI_GREEN + "EXCEPTION CARD NOT FOUND PASSED" + Util.ANSI_RESET);
         }
         Mockito.when(repository.findById(CARD_ID)).thenReturn(Optional.of(CARD));
         CardDto response;
-        //Get response
+        // Get response
         try {
             response = service.getCardById(CARD_ID);
-        }catch(ResourceException e){
-            System.out.println(Util.ANSI_RED+"SERVICE ERROR"+Util.ANSI_RESET);
-            return; //Rompemos la funcion
-            //No podemos validar si no tenemos un response.
+        } catch (ResourceException e) {
+            System.out.println(Util.ANSI_RED + "SERVICE ERROR" + Util.ANSI_RESET);
+            return; // Rompemos la funcion
+            // No podemos validar si no tenemos un response.
         }
-        //Map ProductCategory to ProductCategoryDto:
-        CardDto mapped =  convertToResource(CARD);
-        //Assertions:
+        // Map ProductCategory to ProductCategoryDto:
+        CardDto mapped = convertToResource(CARD);
+        // Assertions:
         try {
-            Util.assertNotNull("RESPONSE NOT NULL",response);
+            Util.assertNotNull("RESPONSE NOT NULL", response);
             validateCard(response, mapped);
-            System.out.println(methodName + " - "+Util.ANSI_GREEN+"TESTS PASSED"+Util.ANSI_RESET);
-        }catch(AssertionError e){
-            System.out.println(methodName +" - "+Util.ANSI_RED+"TESTS FAILED"+Util.ANSI_RESET);
-            throw e;//Throweamos e para que el compilador identifique el error en el test
+            System.out.println(methodName + " - " + Util.ANSI_GREEN + "TESTS PASSED" + Util.ANSI_RESET);
+        } catch (AssertionError e) {
+            System.out.println(methodName + " - " + Util.ANSI_RED + "TESTS FAILED" + Util.ANSI_RESET);
+            throw e;// Throweamos e para que el compilador identifique el error en el test
         }
     }
-    //List<CardDto> getAllByCustomerId(long id) throws ResourceException;
+
+    // List<CardDto> getAllByCustomerId(long id) throws ResourceException;
     @Test
-    public void getAllByCustomerId() throws Exception{
+    public void getAllByCustomerId() throws Exception {
         String methodName = "GET CARD BY ID";
-        //Mock
+        // Mock
         Mockito.when(repository.findAllByCustomerId(CUSTOMER_ID)).thenReturn(Arrays.asList(CARD));
         List<CardDto> response;
-        //Get response
+        // Get response
         try {
             response = service.getAllByCustomerId(CUSTOMER_ID);
-        }catch(ResourceException e){
-            System.out.println(Util.ANSI_RED+"SERVICE ERROR"+Util.ANSI_RESET);
-            return; //Rompemos la funcion
-            //No podemos validar si no tenemos un response.
+        } catch (ResourceException e) {
+            System.out.println(Util.ANSI_RED + "SERVICE ERROR" + Util.ANSI_RESET);
+            return; // Rompemos la funcion
+            // No podemos validar si no tenemos un response.
         }
-        //Map ProductCategory to ProductCategoryDto:
-        CardDto mapped =  convertToResource(CARD);
-        //Assertions:
+        // Map ProductCategory to ProductCategoryDto:
+        CardDto mapped = convertToResource(CARD);
+        // Assertions:
         try {
-            Util.assertNotNull("RESPONSE NOT NULL",response);
+            Util.assertNotNull("RESPONSE NOT NULL", response);
             validateCard(response.get(0), mapped);
-            System.out.println(methodName + " - "+Util.ANSI_GREEN+"TESTS PASSED"+Util.ANSI_RESET);
-        }catch(AssertionError e){
-            System.out.println(methodName +" - "+Util.ANSI_RED+"TESTS FAILED"+Util.ANSI_RESET);
-            throw e;//Throweamos e para que el compilador identifique el error en el test
+            System.out.println(methodName + " - " + Util.ANSI_GREEN + "TESTS PASSED" + Util.ANSI_RESET);
+        } catch (AssertionError e) {
+            System.out.println(methodName + " - " + Util.ANSI_RED + "TESTS FAILED" + Util.ANSI_RESET);
+            throw e;// Throweamos e para que el compilador identifique el error en el test
         }
     }
-    //CardDto createCard(CreateCardDto createCardDto) throws ResourceException;
+
+    // CardDto createCard(CreateCardDto createCardDto) throws ResourceException;
     @Test
-    public void createCard() throws Exception{
+    public void createCard() throws Exception {
         String methodName = "CREATE CARD";
-        //Mock
+        // Mock
         Mockito.when(repository.findCardByCardNumber(CARD_NUMBER)).thenReturn(Optional.of(CARD));
         CreateCardDto source = convertToCreateResource(CARD);
-        try{
+        try {
             service.createCard(source);
-        }catch (InternalServerErrorException e){
-            System.out.println(methodName + " - "+Util.ANSI_GREEN+"EXCEPTION CARD FOUND PASSED"+Util.ANSI_RESET);
+        } catch (InternalServerErrorException e) {
+            System.out.println(methodName + " - " + Util.ANSI_GREEN + "EXCEPTION CARD FOUND PASSED" + Util.ANSI_RESET);
         }
         Mockito.when(repository.findCardByCardNumber(CARD_NUMBER)).thenReturn(Optional.empty());
         Mockito.when(customerRepository.findById(CUSTOMER_ID)).thenReturn(Optional.empty());
-        try{
+        try {
             service.createCard(source);
-        }catch (NotFoundException e){
-            System.out.println(methodName + " - "+Util.ANSI_GREEN+"EXCEPTION CUSTOMER DONT FOUND PASSED"+Util.ANSI_RESET);
+        } catch (NotFoundException e) {
+            System.out.println(
+                    methodName + " - " + Util.ANSI_GREEN + "EXCEPTION CUSTOMER DONT FOUND PASSED" + Util.ANSI_RESET);
         }
         Mockito.when(customerRepository.findById(CUSTOMER_ID)).thenReturn(Optional.of(CUSTOMER));
         Mockito.when(repository.save(Mockito.any(Card.class))).thenReturn(CARD);
         CardDto response;
-        //Get response
+        // Get response
         try {
             response = service.createCard(source);
-        }catch(ResourceException e){
-            System.out.println(Util.ANSI_RED+"SERVICE ERROR"+Util.ANSI_RESET);
-            return; //Rompemos la funcion
-            //No podemos validar si no tenemos un response.
+        } catch (ResourceException e) {
+            System.out.println(Util.ANSI_RED + "SERVICE ERROR" + Util.ANSI_RESET);
+            return; // Rompemos la funcion
+            // No podemos validar si no tenemos un response.
         }
-        //Map ProductCategory to ProductCategoryDto:
-        CardDto mapped =  convertToResource(CARD);
-        //Assertions:
+        // Map ProductCategory to ProductCategoryDto:
+        CardDto mapped = convertToResource(CARD);
+        // Assertions:
         try {
-            Util.assertNotNull("RESPONSE NOT NULL",response);
+            Util.assertNotNull("RESPONSE NOT NULL", response);
             validateCard(response, mapped);
-            System.out.println(methodName + " - "+Util.ANSI_GREEN+"TESTS PASSED"+Util.ANSI_RESET);
-        }catch(AssertionError e){
-            System.out.println(methodName +" - "+Util.ANSI_RED+"TESTS FAILED"+Util.ANSI_RESET);
-            throw e;//Throweamos e para que el compilador identifique el error en el test
+            System.out.println(methodName + " - " + Util.ANSI_GREEN + "TESTS PASSED" + Util.ANSI_RESET);
+        } catch (AssertionError e) {
+            System.out.println(methodName + " - " + Util.ANSI_RED + "TESTS FAILED" + Util.ANSI_RESET);
+            throw e;// Throweamos e para que el compilador identifique el error en el test
         }
     }
-    //String deleteCard(Long id) throws ResourceException;
+
+    // String deleteCard(Long id) throws ResourceException;
     @Test
-    public void deleteCard() throws Exception{
+    public void deleteCard() throws Exception {
         String methodName = "DELETE CARD";
-        //Mock
+        // Mock
         Mockito.when(repository.findById(CARD_ID)).thenReturn(Optional.empty());
-        try{
+        try {
             service.deleteCard(CARD_ID);
-        }catch (NotFoundException e){
-            System.out.println(methodName + " - "+Util.ANSI_GREEN+"EXCEPTION PRODUCT NOT FOUND PASSED"+Util.ANSI_RESET);
+        } catch (NotFoundException e) {
+            System.out.println(
+                    methodName + " - " + Util.ANSI_GREEN + "EXCEPTION PRODUCT NOT FOUND PASSED" + Util.ANSI_RESET);
         }
         Mockito.when(repository.findById(CARD_ID)).thenReturn(Optional.of(CARD));
         Mockito.when(repository.save(Mockito.any(Card.class))).thenReturn(CARD);
         String response;
-        //Get response
+        // Get response
         try {
             response = service.deleteCard(CARD_ID);
-        }catch(ResourceException e){
-            System.out.println(Util.ANSI_RED+"SERVICE ERROR"+Util.ANSI_RESET);
-            return; //Rompemos la funcion
-            //No podemos validar si no tenemos un response.
+        } catch (ResourceException e) {
+            System.out.println(Util.ANSI_RED + "SERVICE ERROR" + Util.ANSI_RESET);
+            return; // Rompemos la funcion
+            // No podemos validar si no tenemos un response.
         }
-        //Assertions:
+        // Assertions:
         try {
-            Util.assertNotNull("RESPONSE NOT NULL",response);
-            Util.assertEquals("GET CARD NUMBER",response, CARD_NUMBER.toString());
-            Util.assertEquals("GET STATE",CARD.getState(), STATE_DELETED);
-            System.out.println(methodName + " - "+Util.ANSI_GREEN+"TESTS PASSED"+Util.ANSI_RESET);
-        }catch(AssertionError e){
-            System.out.println(methodName +" - "+Util.ANSI_RED+"TESTS FAILED"+Util.ANSI_RESET);
-            throw e;//Throweamos e para que el compilador identifique el error en el test
+            Util.assertNotNull("RESPONSE NOT NULL", response);
+            Util.assertEquals("GET CARD NUMBER", response, CARD_NUMBER.toString());
+            Util.assertEquals("GET STATE", CARD.getState(), STATE_DELETED);
+            System.out.println(methodName + " - " + Util.ANSI_GREEN + "TESTS PASSED" + Util.ANSI_RESET);
+        } catch (AssertionError e) {
+            System.out.println(methodName + " - " + Util.ANSI_RED + "TESTS FAILED" + Util.ANSI_RESET);
+            throw e;// Throweamos e para que el compilador identifique el error en el test
         }
     }
-    private void validateCard(CardDto entity, CardDto mapped) throws AssertionError{
-        Util.assertNotNull("CARD NOT NULL",entity);
-        Util.assertEquals("CARD ID",entity.getId(),mapped.getId());
-        Util.assertEquals("CARD TYPE",entity.getType(),mapped.getType());
-        Util.assertEquals("CARD OWNER",entity.getOwner(),mapped.getOwner());
-        Util.assertEquals("CARD NUMBER",entity.getCardNumber(),mapped.getCardNumber());
-        Util.assertEquals("CARD EXPIRE DATE",entity.getExpireDate(),mapped.getExpireDate());
-        Util.assertEquals("CARD MONEY",entity.getCardMoney(),mapped.getCardMoney());
+
+    private void validateCard(CardDto entity, CardDto mapped) throws AssertionError {
+        Util.assertNotNull("CARD NOT NULL", entity);
+        Util.assertEquals("CARD ID", entity.getId(), mapped.getId());
+        Util.assertEquals("CARD TYPE", entity.getType(), mapped.getType());
+        Util.assertEquals("CARD OWNER", entity.getOwner(), mapped.getOwner());
+        Util.assertEquals("CARD NUMBER", entity.getCardNumber(), mapped.getCardNumber());
+        Util.assertEquals("CARD EXPIRE DATE", entity.getExpireDate(), mapped.getExpireDate());
+        Util.assertEquals("CARD MONEY", entity.getCardMoney(), mapped.getCardMoney());
     }
-    private CreateCardDto convertToCreateResource(Card entity){
-        return modelMapper.map(entity,CreateCardDto.class);
+
+    private CreateCardDto convertToCreateResource(Card entity) {
+        return modelMapper.map(entity, CreateCardDto.class);
     }
-    private UpdateCardDto convertToUpdateResource(Card entity){
-        return modelMapper.map(entity,UpdateCardDto.class);
+
+    private UpdateCardDto convertToUpdateResource(Card entity) {
+        return modelMapper.map(entity, UpdateCardDto.class);
     }
-    private CardDto convertToResource(Card entity){
-        return modelMapper.map(entity,CardDto.class);
+
+    private CardDto convertToResource(Card entity) {
+        return modelMapper.map(entity, CardDto.class);
     }
 }
