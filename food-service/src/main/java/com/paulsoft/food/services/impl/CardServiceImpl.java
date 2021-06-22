@@ -1,6 +1,6 @@
 package com.paulsoft.food.services.impl;
 
-import com.paulsoft.food.clients.CustomerClient;
+import com.paulsoft.food.clients.UserClient;
 import com.paulsoft.food.dtos.cardDto.CardDto;
 import com.paulsoft.food.dtos.cardDto.CreateCardDto;
 import com.paulsoft.food.entities.Card;
@@ -23,7 +23,7 @@ public class CardServiceImpl implements CardService {
     CardRepository cardRepository;
 
     @Autowired
-    CustomerClient customerClient;
+    UserClient userClient;
 
     public static final ModelMapper modelMapper=new ModelMapper();
 
@@ -50,7 +50,7 @@ public class CardServiceImpl implements CardService {
             throw new InternalServerErrorException("CARD EXISTS", "CARD EXISTS");
         }
         Card card = new Card();
-        Customer customer = customerClient.getCustomerById(createCardDto.getCustomerId()).getData();
+        Customer customer = userClient.getCustomerById(createCardDto.getCustomerId()).getData();
 
         card.setCustomer(customer);
         card.setCardMoney(createCardDto.getCardMoney());
