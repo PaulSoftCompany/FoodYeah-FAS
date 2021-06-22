@@ -1,6 +1,6 @@
 package com.paulsoft.food.services.impl;
 
-import com.paulsoft.food.clients.CustomerClient;
+import com.paulsoft.food.clients.UserClient;
 import com.paulsoft.food.clients.ProductClient;
 import com.paulsoft.food.dtos.orderDetailDto.CreateOrderDetailDto;
 import com.paulsoft.food.dtos.orderDto.CreateOrderDto;
@@ -35,7 +35,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderDetailRepository orderDetailRepository;
 
     @Autowired
-    CustomerClient customerClient;
+    UserClient customerClient;
 
     @Autowired
     ProductClient productClient;

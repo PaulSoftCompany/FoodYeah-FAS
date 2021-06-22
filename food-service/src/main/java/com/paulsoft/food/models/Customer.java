@@ -17,5 +17,5 @@ public class Customer {
     private Boolean state;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date createdAt;
-    List<OrderDto> orders;
+    private List<OrderDto> orders;
 }

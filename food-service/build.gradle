@@ -29,6 +29,7 @@ dependencies {
 	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.25'
 	implementation 'javax.validation:validation-api:2.0.1.Final'
 	runtimeOnly 'com.h2database:h2'
+	// implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.4'
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-bootstrap', version: '3.0.2'
 	implementation group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.4.1'
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: '3.0.4'

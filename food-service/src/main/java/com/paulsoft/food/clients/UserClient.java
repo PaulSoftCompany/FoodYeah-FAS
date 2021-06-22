@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@FeignClient(name = "customer-service")
+@FeignClient(name = "user-service")
 @RequestMapping(value = "/customers")
-public interface CustomerClient {
+public interface UserClient {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public ResourceResponse<Customer> getCustomerById(@PathVariable("id") Long id) throws ResourceException;
