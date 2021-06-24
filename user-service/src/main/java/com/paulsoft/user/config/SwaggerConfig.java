@@ -19,7 +19,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.paulsoft.foodyeah"))
+                .apis(RequestHandlerSelectors.basePackage("com.paulsoft.user"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
@@ -29,10 +29,10 @@ public class SwaggerConfig {
     public ApiInfo apiInfo() {
 
         return new ApiInfoBuilder()
-                .title("FoodYeah!-Api")
-                .description("API de FoodYeah! de PaulSoft Company")
-                .version("2.0")
-                .contact(new Contact("Paulsoft Company", "", ""))
-                .build();
+        .title("User-Service")
+        .description("User-Service de FoodYeah! de PaulSoft Company")
+        .version("2.0")
+        .contact(new Contact("Paulsoft Company", "", ""))
+        .build();
     }
 }
