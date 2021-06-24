@@ -1,5 +1,6 @@
 FROM openjdk:11
 VOLUME /tmp
 ARG build/libs/*.jar
-COPY build/libs/*.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+EXPOSE 8080
+COPY build/libs/*.jar gateway-service.jar
+ENTRYPOINT ["java","-jar","/gateway-service.jar"]
