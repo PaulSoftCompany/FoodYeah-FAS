@@ -10,6 +10,18 @@ services:
       - registry-service
     restart: on-failure
 
+  gateway-service:
+    image: gateway-service
+    ports:
+      - "8080:8080"
+    networks:
+      - foodyeah-network
+    depends_on:
+      - user-service
+      - inventory-service
+      - food-service
+    restart: on-failure
+
   user-service:
     image: user-service
     ports:
